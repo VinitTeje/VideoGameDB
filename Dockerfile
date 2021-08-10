@@ -17,7 +17,7 @@ RUN apt install -y openjdk-8-jdk
 RUN apt-get install maven -y
 
 # Download VideoGameDB
-RUN git clone https://github.com/james-willett/VideoGameDB.git
+RUN git clone https://github.com/VinitTeje/VideoGameDB.git
 
 # Go To VideoGameDB folder
 #WORKDIR /VideoGameDB
