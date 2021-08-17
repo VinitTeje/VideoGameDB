@@ -1,26 +1,19 @@
 #update the current ubuntu
+
 FROM  ubuntu
-RUN apt-get update
+# Expose port 9090
+EXPOSE 9090
 
-#install git on current image
-RUN apt install -y git
-
-# Expose port 8080
-EXPOSE 8080
-
+# Set noninteractive
 ENV DEBIAN_FRONTEND noninteractive
 
+#install git on current image
 #install openjdk8
-RUN apt install -y openjdk-8-jdk
-
-# Install Maven
-RUN apt-get install maven -y
+#install maven
+RUN apt-get update && apt install -y git openjdk-8-jdk maven
 
 # Download VideoGameDB
 RUN git clone https://github.com/VinitTeje/VideoGameDB.git
 
 # Go To VideoGameDB folder
-#WORKDIR /VideoGameDB
-
-# Run Application using Maven
-# RUN mvn spring-boot:run
+CMD ["bash", "VideoGameDB/videogamedb.sh"]
